@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+<script>
+
+// wasn't able to figure it out
+let count = [0,0,0,0,0,0,0,0,0,0,0];
+
+    function randomNumber(){
+        return Math.floor(Math.random() * 6)+ 1;
+    }
+
+    function rolldice(){
+        let dice1 = randomNumber()
+        let dice2 = randomNumber()
+        let diceSum = 0;
+
+        let answer = count
+
+
+        for(let i = 0; i < 1; i++){
+            diceSum += (dice1+dice2)
+            count[diceSum-2] = count[diceSum] + 1
+           // answer += diceSum + " "
+          // didnt work answer = count[output]=count[output] + 1
+         }
+        //return diceSum
+        const mydiv = document.createElement("div");
+        document.body.appendChild(mydiv);
+        let mytext = document.createTextNode(answer);
+        mydiv.appendChild(mytext);
+
+         
+
+    }
+
+    
+
+   
+rolldice()
+
+
+
+
+</script>
+
+</body>
+</html>
