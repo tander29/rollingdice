@@ -17,38 +17,67 @@
 // wasn't able to figure it out
 let count = [0,0,0,0,0,0,0,0,0,0,0];
 
-    function randomNumber(){
-        return Math.floor(Math.random() * 6)+ 1;
-    }
+header()
+function header(){
+       let thistitle = document.createElement("h3");
+        document.body.appendChild(thistitle);
+        let titleText = document.createTextNode("Roll the dice, add them together, store in array repeat 1000x");
+        thistitle.appendChild(titleText)
 
+}
+
+rolldice()
     function rolldice(){
-        let dice1 = randomNumber()
-        let dice2 = randomNumber()
+       for(let i = 0; i < 1000; i++){
+        let dice1 = Math.floor(Math.random() * 6)+ 1;
+        let dice2 = Math.floor(Math.random() * 6)+ 1;
         let diceSum = 0;
-
-        let answer = count
-
-
-        for(let i = 0; i < 1; i++){
-            diceSum += (dice1+dice2)
-            count[diceSum-2] = count[diceSum] + 1
+            diceSum += (dice1+dice2);
+            count[diceSum-2] += 1;
            // answer += diceSum + " "
           // didnt work answer = count[output]=count[output] + 1
-         }
+        }
         //return diceSum
         const mydiv = document.createElement("div");
         document.body.appendChild(mydiv);
-        let mytext = document.createTextNode(answer);
-        mydiv.appendChild(mytext);
+       // let mytext = document.createTextNode(count);
+       // mydiv.appendChild(mytext);
+    }
+      //  function addtoarray(x)
+        //    for (let i = 0; i< x; i ++)
+    printResults()
+    function printResults(){
 
-         
+            for(let i= 0; i < count.length; i ++){
+            const div2 = document.createElement("div");
+            document.body.appendChild(div2);
 
+            let arrayNumber = document.createTextNode(i+2 + ": " + count[i]);
+            div2.appendChild(arrayNumber);
+            }
     }
 
+    barGraph()
+    function barGraph(){
+        for(let i= 0; i < 11; i ++){
+            const bar = document.createElement("div");
+            document.body.appendChild(bar);
+            bar.style.background = "green";
+            bar.style.height = 20 + "px";
+            bar.style.margin = 5 + "px";
+            bar.style.paddingLeft = 2 + "px";
+            bar.style.width = count[i]*2 + "px";
+            let barName = document.createTextNode(i+2 + ": "+count[i]);
+            bar.appendChild(barName);
+        }
+
+
+
+    }
     
 
    
-rolldice()
+
 
 
 
